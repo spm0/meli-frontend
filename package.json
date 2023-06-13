@@ -1,0 +1,40 @@
+{
+  "name": "meli-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build:server": "babel ./src -d build",
+    "build:watch:server": "babel ./src -d build --watch",
+    "build:client": "concurrently \"webpack --mode=production\" \"node-sass src/shared/assets/styles/global.scss -o build/shared/assets/styles\"",
+    "build:watch:client": "concurrently \"webpack --mode=development -w\" \"node-sass src/shared/assets/styles/global.scss -o build/shared/assets/styles\"",
+    "dev": "concurrently \"npm run build:watch:client\" \"npm run build:watch:server\" \"nodemon build/server/server.js\"",
+    "start": "concurrently \"npm run build:client\" \"npm run build:server\" && nodemon build/server/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "express": "^4.18.2",
+    "isomorphic-fetch": "^3.0.0",
+    "node-sass": "^9.0.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-loader-spinner": "^5.3.4",
+    "react-router-dom": "^6.12.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "babel-loader": "^9.1.2",
+    "concurrently": "^8.2.0",
+    "nodemon": "^2.0.22",
+    "webpack": "^5.86.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
