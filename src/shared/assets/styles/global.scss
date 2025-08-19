@@ -1,4 +1,4 @@
-@import "constants";
+@use "constants";
 
 html {
   height: 100%;
@@ -6,7 +6,7 @@ html {
 
 body {
   min-height: 100%;
-  background-color: $light-grey !important;
+  background-color: constants.$light-grey !important;
 }
 
 input[type="text"]:focus {
@@ -16,17 +16,17 @@ input[type="text"]:focus {
 }
 
 .app-header {
-  background-color: $primary !important;
+  background-color: constants.$primary !important;
 }
 
 .btn-search.btn-primary {
-  background-color: $light-grey !important;
+  background-color: constants.$light-grey !important;
   border: 0 !important;
 }
 
 .btn-primary {
-  background-color: $blue !important;
-  border-color: $blue !important;
+  background-color: constants.$blue !important;
+  border-color: constants.$blue !important;
 }
 
 .pointer {
