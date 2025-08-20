@@ -30,5 +30,6 @@ Finalmente, abrir [http://localhost:3000](http://localhost:3000) con el navegado
 
 ## TODOS
 
+<p>Quitaron APIs de busqueda de articulos en ML. Traer los datos usando scraping</p>
 <p>Agregar tipado con TypeScript</p>
 <p>Dividir bundle.js en chunks por página</p>
