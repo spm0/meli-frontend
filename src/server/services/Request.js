@@ -1,11 +1,13 @@
 import fetch from "isomorphic-fetch";
-import { BASE_URL } from "../../shared/utils/constants";
 
 class Request {
   async get(endpoint) {
-    const response = await fetch(`${BASE_URL}/${endpoint}`);
+    const headers = new Headers();
+    headers.append("Authorization", `Bearer APP_USR-4985740399303355-081922-44e6cc4559f336fc6279ddc9de0982dd-145342791`);
+    const response = await fetch(`/api/${endpoint}`, { headers });
     if (!response.ok) {
-      throw new Error(`HTTP Error: ${response.status}`);
+      const errorData = await response.json();
+      throw new Error(`HTTP Error: ${response.status} - ${errorData.message}`);
     }
     return response.json();
   }

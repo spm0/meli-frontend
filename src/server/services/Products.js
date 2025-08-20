@@ -5,7 +5,7 @@ class Products extends Request {
     super();
   }
   async list(q, limit = 4) {
-    return this.get(`/sites/MLA/search?q=${q}&limit=${limit}`);
+    return this.get(`sites/MLA/search?q=${q}&limit=${limit}`);
   }
   async single(id) {
     return this.get(`items/${id}`);

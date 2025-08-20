@@ -1,4 +1,5 @@
 import express from "express";
+import { createProxyMiddleware } from "http-proxy-middleware";
 // import path from "path";
 // import { fileURLToPath } from "url";
 import { PORT } from "../shared/utils/constants";
@@ -6,12 +7,23 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import App from "../client/App";
+import { API_URL } from "../shared/utils/constants";
 
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
 const server = express();
 
+server.use(
+  '/api',
+  createProxyMiddleware({
+    target: API_URL,
+    changeOrigin: true,
+    pathRewrite: { '^/api': '' },
+  })
+);
+
 server.use(express.static(__dirname + "/../"));
+
 server.get("*", (req, res) => {
   const pageTemplate = (childsString) => `<!doctype html>
 <html lang="es">
